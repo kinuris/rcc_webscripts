@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/helloworld')
 def index():
-    return "Hello, World! ver 0.0.1"
+    return "Hello, World! ver 0.0.2"
 
 @app.route('/receipt/analyze')
 def analyze_receipt():
