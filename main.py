@@ -11,10 +11,6 @@ app = Flask(__name__)
 def index():
     return "Hello, World! ver 0.0.2"
 
-@app.route('/custom-endpoint')
-def custom_endpoint():
-    return "This is a custom endpoint!"
-
 # Endpoint to GET the state for a specific user
 @app.route('/state/<chat_id>', methods=['GET'])
 def get_state(chat_id):
@@ -38,6 +34,7 @@ def set_state():
         "INSERT OR REPLACE INTO telegram_receipts (chatId, state, receipt_json) VALUES (?, ?, ?)",
         (chat_id, state, receipt_json)
     )
+
     conn.commit()
     conn.close()
     return jsonify({"status": "success"}), 200
