@@ -11,6 +11,10 @@ app = Flask(__name__)
 def index():
     return "Hello, World! ver 0.0.2"
 
+@app.route('/custom-endpoint')
+def custom_endpoint():
+    return "This is a custom endpoint!"
+
 # Endpoint to GET the state for a specific user
 @app.route('/state/<chat_id>', methods=['GET'])
 def get_state(chat_id):
